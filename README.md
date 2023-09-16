@@ -2,7 +2,7 @@
 
 # Water Footprint Calculator💧
 
-![Water Footprint](icon_for_a_water_footprint_cal.jpeg)
+![Water Footprint](![Alt text](icon_for_a_water_footprint_cal.jpeg))
 
 ## Overview📝
 
