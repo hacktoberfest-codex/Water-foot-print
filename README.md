@@ -2,7 +2,7 @@
 
 # Water Footprint Calculator💧
 
-![Water Footprint](https://www.example.com/water-footprint-image.jpg)
+![Water Footprint](icon_for_a_water_footprint_cal.jpeg)
 
 ## Overview📝
 
@@ -33,6 +33,8 @@ Water is one of our most precious resources, and its sustainable management is c
 2.Html
 3.Css
 4.Javascript
+5.Bootstrap
+6.Jquery
 
 ## Project Goals✅
 
