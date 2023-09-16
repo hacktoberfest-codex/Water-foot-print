@@ -108,20 +108,7 @@
 
         }
 
-        form {
-            display: contents;
-
-            button:hover {
-                background-color: #0054b0;
-            }
-            
-
-            .error-message {
-                color: red;
-                font-size: 14px;
-                margin-top: 5px;
-            }
-        } 
+        
     </style>
 </head>
 
@@ -129,10 +116,11 @@
     <main>
         <section id="calculator">
             <h1>Calculate Your Water Footprint</h1>
-            <form id="calculator-form">
+            <form id="calculator-form" method="POST">
+                {% csrf_token %}
 
                 <label for="state-dropdown">Select an Indian State:</label>
-                <select id="state-dropdown">
+                <select id="state-dropdown" name="state">
                     <option value="0">Andhra Pradesh</option>
                     <option value="1">Arunachal Pradesh</option>
                     <option value="2">Assam</option>
@@ -173,24 +161,24 @@
                 <br>
                 <form id="waterFootprintForm">
                     <label for="shower">Time spent in the shower (minutes per day):</label>
-                    <input type="number" id="shower" name="shower" min="0" step="1" required><br><br>
+                    <input type="number" id="shower" name="shower" min="0" step="1" name="shower" required><br><br>
 
                     <label for="flush">Toilet flushes per day:</label>
-                    <input type="number" id="flush" name="flush" min="0" step="1" required><br><br>
+                    <input type="number" id="flush" name="flush" min="0" step="1" name="flush" required><br><br>
 
                     <label for="dishwasher">Dishwasher usage (number of loads per week):</label>
-                    <input type="number" id="dishwasher" name="dishwasher" min="0" step="1" required><br><br>
+                    <input type="number" id="dishwasher" name="dishwasher" min="0" step="1" name="dishwasher" required><br><br>
 
                     <label for="laundry">Laundry machine usage (number of loads per week):</label>
-                    <input type="number" id="laundry" name="laundry" min="0" step="1" required><br><br>
+                    <input type="number" id="laundry" name="laundry" min="0" step="1" name="laundry" required><br><br>
 
                     <label for="diet">Diet (average diet water footprint, in liters per day):</label>
-                    <input type="number" id="diet" name="diet" min="0" step="0.01" required><br><br>
+                    <input type="number" id="diet" name="diet" min="0" step="0.01" name="diet" required><br><br>
 
                     <label for="local">Local water availability (liters per day):</label>
-                    <input type="number" id="local" name="local" min="0" step="0.01" required><br><br>
+                    <input type="number" id="local" name="local" min="0" step="0.01"  name="local" required><br><br>
 
-                    <button type="button" class="calc" onclick="calculateWaterFootprint()">Calculate</button>
+                    <button type="submit" class="calc" onclick="calculateWaterFootprint()">Calculate</button>
                 </form>
             </form>
 

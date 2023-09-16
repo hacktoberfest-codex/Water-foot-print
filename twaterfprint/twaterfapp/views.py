@@ -1,10 +1,39 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from django.contrib import messages
 
 def index(request):
     return render(request,'index.html')
 
 def page1(request):
-    return render(request,'page1.html')
+    region={"North":["Himachal Pradesh","Haryana","Punjab","Uttar Pradesh","Uttarakhand","Chandigarh","Delhi","Jammu and Kashmir","Ladakh"],"West":["Rajasthan","Gujarat","Dadra and Nagar Haveli and Daman and Diu","Maharashtra","Goa"],"East":["Bihar","West Bengal","Sikkim","Meghalaya","Assam","Arunachal Pradesh","Nagaland","Manipur","Mizoram","Tripura","Odisha"],"South":["Telangana","Karnataka","Andhra Pradesh","Kerala","Tamil Nadu","Puducherry","Andaman and Nicobar Islands","Lakshadweep"],"Middle":["Madhya Pradesh","Chhattisgarh","Jharkhand"]}
+    
+   
+    if request.method=="POST":
+        st=request.POST['state']
+        shower=int(request.POST['shower'])
+        flush=int(request.POST['flush'])
+        dish=int(request.POST['dishwasher'])
+        laun=int(request.POST['laundry'])
+        diet=int(request.POST['diet'])
+        local=int(request.POST['local'])
+        showertime=4*shower
+        flushtime=6*flush
+        launtime=10*laun
+        dishtime=7*dish
+        totalwater=showertime+flushtime+launtime+dishtime+diet
+
+
+        # for k,v in region.items():
+        #     if(state in v ):
+        if( totalwater>local ):
+            messages.info(request,'Follow water conservation techniques')
+        else:
+            messages.info(request,'You have good waterfootprint')
+        return render(request,'result.html',{'totalwater':totalwater})
+        
+    else:
+        return render(request,'page1.html')
+    
 def resultpage(request):
     return render(request,'result.html')
 

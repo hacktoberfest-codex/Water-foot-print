@@ -5,10 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Result</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        background-color: #3fa4df;
+        /* display: flex;  */
+       
+        
+        /* min-height: 100vh; */
+    }
+    #container{
+        margin-left: 400px;
+    }
+    .error{
+        color: red;
+    }
+
+
+    /* .container {
+        max-width: 400px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    } */
+   
+    /* h1 {
+        margin-bottom: 20px;
+        color: #333;
+    } */
+    </style>
 </head>
 <body>
-    <h2 class="res">Result:</h2>
-    <p class="res">Your estimated daily water footprint is: <span id="result">-</span> litres.</p>
-    <div id="result"></div>
+    <div id="container">
+    <div class="error">
+        {% if messages%}
+        {%for m in messages%}
+         <h3>{{m}}</h3>
+         {%endfor%}
+         {% endif %}
+      
+     </div>
+     <br>
+     <div id="result">
+         <h2>Result:</h2>
+         <p>Your estimated daily water footprint is: {{totalwater}} litres.</p>
+     </div>
+    </div>
 </body>
 </html>
