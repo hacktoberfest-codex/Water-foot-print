@@ -51,7 +51,7 @@ button:hover {
 
 /* Style the navigation bar */
 nav {
-    background-color: #333; /* Background color for the navbar */
+    background:linear-gradient(to top,rgb(27, 85, 155),rgb(66, 66, 220),white); /* Background color for the navbar */
 }
 
 .navbar {
