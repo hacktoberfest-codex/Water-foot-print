@@ -1,253 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculate!!</title>
+    <title>Water Footprint Calculator Registration</title>
     <style>
-        body{
+        body {
+            background-image: url('https://images.ctfassets.net/co0pvta7hzrh/1HOajBVHsh7xunfUnjpDNE/c94d271e8f90a6bf6016fc1d275d7a74/e_commerce_registration_form_template_thumb.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
             margin: 0;
             padding: 0;
-            color: #fff;
-            background-image: linear-gradient(180deg,darkblue,lightblue);
         }
-        h1{
-            font-size: 45px;
-            border: 0px solid;
-            border-radius: 10px;
-            background-color: black;
-            color: aqua;
-            padding: 25px;
-            text-align: center;
-            margin-top: 7%;
-            margin-bottom: 5%;
-        }
-        #state-dropdown{
-            padding: 9px;
-        }
-        main{
-            max-width: 800px;
+
+        .container {
+            max-width: 600px;
             margin: 0 auto;
-        }
-        header{
-            background-color: #3498db;
-            color: #fff;
+            padding: 50px;
+            background-color: #a2e3ef;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
             text-align: center;
-            padding: 20px 0;
         }
-        #calculator{
-            padding: 10px;
+
+        h2 {
+            color: #007bff;
+        }
+
+        form {
+
             margin-top: 20px;
-            font-size: large;
+
         }
-        label{
+
+        label {
             display: block;
             margin-bottom: 10px;
             font-weight: bold;
-            margin-bottom: 5px;
-            color: #fff;
         }
-        input[type="number"]{
-            width: 100%;
+
+        select{
+            height: 30px;
+            width: 80%;
+            padding: 5px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            
+        }
+        input[type="text"],
+        input[type="number"] {
+            height: 20px;
+            width: 80%;
             padding: 10px;
             margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-        button{
-            background-color: #1b6ba0;
+
+        input[type="submit"] {
+            background-color: #007bff;
             color: #fff;
-            border: none;
             padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
-        .calc{
-            border-radius: 25px;
-        }
-        button:hover{
-            background-color: #2980b9;
-        }
-        #result{
-            margin-top: 20px;
-
-        }
-        form{
-            display: flex;
-            flex-direction: column;
-        }
-        .res{
-            color: black;
-        }
-
-        /*navbar styling*/
-
     </style>
 </head>
+
 <body>
-    <main>
-        <h1>Calculate Your Water Footprint</h1>
-        <section id="calculator">
-            <form id="calculator-form">
-                <label for="state-dropdown" style="font-size: large;"><b>Select an Indian State</b></label>
-                <select id="state-dropdown">
-                    <option value="0"></option>
-                    <option value="1"></option>
-                    <option value="2"></option>
-                    <option value="3"></option>
-                    <option value="4"></option>
-                    <option value="5">Andhra Pradesh</option>
-                    <option value="6">Arunachal Pradesh</option>
-                    <option value="7">Assam</option>
-                    <option value="8">Bihar</option>
-                    <option value="9">Chhattisgarh</option>
-                    <option value="10">Goa</option>
-                    <option value="11">Gujrat</option>
-                    <option value="12">Haryana</option>
-                    <option value="13">Himachal Pradesh</option>
-                    <option value="14">Jharkhand</option>
-                    <option value="15">Karnataka</option>
-                    <option value="16">Kerala</option>
-                    <option value="17">Madhya Pradesh</option>
-                    <option value="18">Maharastra</option>
-                    <option value="19">Manipur</option>
-                    <option value="20">Meghalaya</option>
-                    <option value="21">Mizoram</option>
-                    <option value="22">Nagaland</option>
-                    <option value="23">Odisha</option>
-                    <option value="24">Punjab</option>
-                    <option value="25">Rajasthan</option>
-                    <option value="26">Sikkim</option>
-                    <option value="27">Tamil Nadu</option>
-                    <option value="28">Telangana</option>
-                    <option value="29">Tripura</option>
-                    <option value="30">Uttar Pradesh</option>
-                    <option value="31">Uttarakhand</option>
-                    <option value="32">West Bengal</option>
-                </select>
-                <button type="button" id="display-btn"><b>Display Selected State</b></button>
-            </form>
-            <br>
-            <br>
-            <form id="waterFootprintForm">
-                <label for="shower"><b>Time spent in the shower (minutes per day) :</b></label>
-                <input type="number" id="shower" name="shower" min="0" step="1" required><br><br>
+    <div class="container">
 
-                <label for="flush">Toilet Flushes per day :</label>
-                <input type="number" id="flush" name="flush" min="0" step="1" required><br><br>
+        <h2>Water Footprint Calculator</h2>
+        <form id="calculator-form" method="POST">
 
-                <label for="dishwasher">Dishwasher usage (number of loads per week):</label>
-                <input type="number" id="dishwasher" name="dishwasher" min="0" step="1" required><br><br>
-
-                <label for="laundry">Laundry machhine usage (number of loads per week)</label>
-                <input type="number" id="laundry" name="laundry" min="0" step="1" required><br><br>
-
-                <label for="diet">Diet (average diet waater footprint, in liters per day)</label>
-                <input type="number" id="diet" name="diet" min="0" step="0.01" required><br><br>
-
-                <label for="local">Local water availability</label>
-                <input type="number" id="local" name="local" min="0" step="0.01" required><br><br>
-
-                <button type="button" class="calc" onclick="calculateWaterFootprint()">Calculate</button>
-            </form>
-
-            <h2 class="res">Result :</h2>
-            <p class="res">Your estimated daily water footprint is : <span id="result">-</span> liters.</span></p>
-
-            <button type="button" class="calc" id="calculate-btn">Calculate</button>
-            <div id="result"></div>
-        </section>
-    </main>
-    <script src="script.js"></script>
-    <script>document.getElementById("button").addEventListener("click",calculateWaterFootprint);</script>
-</body>
-</html>
-=======
-    <link rel="stylesheet" type="text/css" href="page11.css">
-
-</head>
-<body>
-    <main>
-    <section id="calculator">
-        <h2>Calculate Your Water Footprint</h2>
-        <form id="calculator-form">
-
-            <label for="state-dropdown">Select an Indian State:</label>
-            <select id="state-dropdown">
-                <option value="0">Andhra Pradesh</option>
-                <option value="1">Arunachal Pradesh</option>
-                <option value="2">Assam</option>
-                <option value="3">Bihar</option>
-                <option value="4">Chhattisgarh</option>
-                <option value="5">Goa</option>
-                <option value="6">Gujarat</option>
-                <option value="7">Haryana</option>
-                <option value="8">Himachal Pradesh</option>
-                <option value="9">Jharkhand</option>
-                <option value="10">Karnataka</option>
-                <option value="11">Kerala</option>
-                <option value="12">Madhya Pradesh</option>
-                <option value="13">Maharashtra</option>
-                <option value="14">Manipur</option>
-                <option value="15">Meghalaya</option>
-                <option value="16">Mizoram</option>
-                <option value="17">Nagaland</option>
-                <option value="18">Odisha</option>
-                <option value="19">Punjab</option>
-                <option value="20">Rajasthan</option>
-                <option value="21">Sikkim</option>
-                <option value="22">Tamil Nadu</option>
-                <option value="23">Telangana</option>
-                <option value="24">Tripura</option>
-                <option value="25">Uttar Pradesh</option>
-                <option value="26">Uttarakhand</option>
-                <option value="27">West Bengal</option>
-                <option value="28">Andaman and Nicobar Islands</option>
-                <option value="29">Chandigarh</option>
-                <option value="30">Dadra and Nagar Haveli and Daman and Diu</option>
-                <option value="31">Lakshadweep</option>
-                <option value="32">Delhi</option>
-                <option value="33">Puducherry</option>
+            <label for="state">Select your state:</label>
+            <select id="state" name="state">
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                <option value="Assam">Assam</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Chhattisgarh">Chhattisgarh</option>
+                <option value="Goa">Goa</option>
+                <option value="Gujarat">Gujarat</option>
+                <option value="Haryana">Haryana</option>
+                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                <option value="Jharkhand">Jharkhand</option>
+                <option value="Karnataka">Karnataka</option>
+                <option value="Kerala">Kerala</option>
+                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                <option value="Maharashtra">Maharashtra</option>
+                <option value="Manipur">Manipur</option>
+                <option value="Meghalaya">Meghalaya</option>
+                <option value="Mizoram">Mizoram</option>
+                <option value="Nagaland">Nagaland</option>
+                <option value="Odisha">Odisha</option>
+                <option value="Punjab">Punjab</option>
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Sikkim">Sikkim</option>
+                <option value="Tamil Nadu">Tamil Nadu</option>
+                <option value="Telangana">Telangana</option>
+                <option value="Tripura">Tripura</option>
+                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                <option value="Uttarakhand">Uttarakhand</option>
+                <option value="West Bengal">West Bengal</option>
+                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                <option value="Chandigarh">Chandigarh</option>
+                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu
+                </option>
+                <option value="Lakshadweep">Lakshadweep</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Puducherry">Puducherry</option>
             </select>
-            
+
+            <label for="showerTime">Total time spent on shower (minutes):</label>
+            <input type="number" id="showerTime" name="showerTime" required>
+
+            <label for="flushes">Number of flushes in a day:</label>
+            <input type="number" id="flushes" name="flushes" required>
+
+            <label for="dishwasherUsage">Dishwasher usage (hours per day):</label>
+            <input type="number" id="dishwasherUsage" name="dishwasherUsage" required>
+
+            <label for="laundryUsage">Laundry usage (loads per week):</label>
+            <input type="number" id="laundryUsage" name="laundryUsage" required>
+
+            <label for="dietPlan">Diet plan:</label>
+            <input type="text" id="dietPlan" name="dietPlan" required>
+
+
+
+
+            <input style="height: 50px; background-color: rgb(27, 90, 227); color: white;" type="submit"
+                value="Calculate">
         </form>
-    
-        <form id="waterFootprintForm">
-            <label for="shower">Time spent in the shower (minutes per day):</label>
-            <input type="number" id="shower" name="shower" min="0" step="1" required><br><br>
-    
-            <label for="flush">Toilet flushes per day:</label>
-            <input type="number" id="flush" name="flush" min="0" step="1" required><br><br>
-    
-            <label for="dishwasher">Dishwasher usage (number of loads per week):</label>
-            <input type="number" id="dishwasher" name="dishwasher" min="0" step="1" required><br><br>
-    
-            <label for="laundry">Laundry machine usage (number of loads per week):</label>
-            <input type="number" id="laundry" name="laundry" min="0" step="1" required><br><br>
-    
-            <label for="diet">Diet (average diet water footprint, in liters per day):</label>
-            <input type="number" id="diet" name="diet" min="0" step="0.01" required><br><br>
-    
-            <label for="local">Local water availability (liters per day):</label>
-            <input type="number" id="local" name="local" min="0" step="0.01" required><br><br>
-    
-            <button type="button" onclick="calculateWaterFootprint()">Calculate</button>
-        </form>
-    
-        <h2>Result:</h2>
-        <p>Your estimated daily water footprint is: <span id="result">-</span> liters.</p>
-    
-       
-
-    </form>
-
-
-
-            <button type="button" id="calculate-btn">Calculate</button>
-        </form>
-        <div id="result"></div>
-    </section>
-</main>
-    <script src="script.js"></script>
-     <script>document.getElementById("button").addEventListener("click",calculateWaterFootprint);</script>
-    
+    </div>
 </body>
+
 </html>
