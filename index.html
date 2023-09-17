@@ -27,7 +27,22 @@
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x:hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
      }
+
+     .main-container{
+      margin-left: 85px;
+  max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+.main-container::-webkit-scrollbar {
+    width: 0;
+}
 
     header {
     background-color: #3498db;
@@ -73,12 +88,6 @@
 #result {
     margin-top: 20px;
 }
-
-.main-container{
-
-  margin-left: 85px;
-}
-
 /* Style the navigation bar */
 @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
         .menu, .menu-bar {
@@ -97,7 +106,7 @@
         .menu li a{
           display: block;
           text-indent: -500em;
-          height: 5em;
+          height: 6.5em;
           width: 5em;
           line-height: 5em;
           text-align:center;
@@ -362,23 +371,23 @@ a:visited{
 
   <ul class="menu">
 
-    <li title="home"><a href="index.html" class="fa-home">Home</a></li>
-    <li title="search"><a href="divConnect1.html" class="search">About Us</a></li>
-    <li title="pencil"><a href="divConnect2.html" class="pencil">Methods</a></li>
-    <li title="about"><a href="#" class="fa-superpowers">Support</a></li>
-    <li title="archive"><a href="https://jalshakti-dowr.gov.in/hi/" class="archive">Know More</a></li>
-    <li title="contact"><a href="aboutUs.html" class="contact">Contact Us</a></li>
+    <li title="Home"><a target="_blank" href="index.html" class="fa-home">Home</a></li>
+    <li title="Resources"><a target="_blank" href="divConnect1.html" class="fa-solid fa-qrcode">About Us</a></li>
+    <li title="About This Site"><a target="_blank" href="divConnect2.html" class="fa-solid fa-circle-info">Methods</a></li>
+    <li title="Calculator"><a target="_blank" href="page1.html" class="fa-solid fa-calculator">Water Footprint Calculator</a></li>
+    <li title="Official Website"><a target="_blank" href="https://jalshakti-dowr.gov.in/hi/" class="fa-solid fa-diamond-turn-right">Know More</a></li>
+    <li title="Contact Us"><a target="_blank" href="aboutUs.html" class="contact">Contact Us</a></li>
   </ul>
   
  
   
 
     <div class="main-container">
-      <div style="height:100px; text-align: center; background:linear-gradient(to top,lightblue,white,lightblue);border:2px solid blue;">
+      <div style="height:100px; text-align: center; background:linear-gradient(to top,lightblue,white,lightblue);">
       <h1 style="font-family: 'Oswald', sans-serif; padding-top: 20px; background: linear-gradient(to top,white,rgb(109, 109, 230),rgb(8, 12, 234),rgb(109, 109, 230),white); -webkit-background-clip: text; -webkit-text-fill-color: transparent ;">Water Footprint Calculator</h1>
       </div>
 
-    <div id="demo" class="carousel slide" data-bs-ride="carousel">
+     <div id="demo" class="carousel slide" data-bs-ride="carousel" >
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
@@ -404,24 +413,26 @@ a:visited{
       </div>
           </div>
         </div>
+        <!-- Write your comments here 
         <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
           <span class="carousel-control-prev-icon"></span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
           <span class="carousel-control-next-icon"></span>
         </button>
+      -->
       </div>
-    <main>
-        <section id="calculator">
-            <h2>Calculate Your Water Footprint</h2>
-            
+     <main>
+        <section id="calculator"  style="border:8px double beige;">
+            <h3 style="display: flex; justify-content: center; align-items: center; padding-bottom: 20px;">Calculate Your Water Footprint</h3>
+                <div style="display: flex; justify-content: center; align-items: center;">
                 <button type="button" id="calculate-btn" style="border-radius: 25px; background-color: black;"><a href="page1.html" style="text-decoration: none;">Calculate</a></button>
-
+              </div>
                 
             
             <div id="result"></div>
         </section>
-    </main>   
+      </main>   
 
     <div id="google_translate_element"></div>
 
