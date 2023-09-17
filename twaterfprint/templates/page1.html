@@ -25,6 +25,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
             text-align: center;
+            
         }
 
         h2 {
@@ -77,7 +78,10 @@
     <div class="container">
 
         <h2>Water Footprint Calculator</h2>
+        
         <form id="calculator-form" method="POST">
+            {% csrf_token %}
+
 
             <label for="state">Select your state:</label>
             <select id="state" name="state">
@@ -117,6 +121,7 @@
                 <option value="Delhi">Delhi</option>
                 <option value="Puducherry">Puducherry</option>
             </select>
+        
 
             <label for="showerTime">Total time spent on shower (minutes):</label>
             <input type="number" id="showerTime" name="showerTime" required>
@@ -129,14 +134,15 @@
 
             <label for="laundryUsage">Laundry usage (loads per week):</label>
             <input type="number" id="laundryUsage" name="laundryUsage" required>
+            
 
-            <label for="dietPlan">Diet plan:</label>
+            <label for="dietPlan">Water Intake (per day):</label>
             <input type="text" id="dietPlan" name="dietPlan" required>
 
 
 
 
-            <input style="height: 50px; background-color: rgb(27, 90, 227); color: white;" type="submit"
+            <input style="height: 50px; background-color: rgb(27, 90, 227); color: white;" type="submit" href="page1"
                 value="Calculate">
         </form>
     </div>
