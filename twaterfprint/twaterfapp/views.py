@@ -5,38 +5,70 @@ def index(request):
     return render(request,'index.html')
 
 def page1(request):
-    region={"North":["Himachal Pradesh","Haryana","Punjab","Uttar Pradesh","Uttarakhand","Chandigarh","Delhi","Jammu and Kashmir","Ladakh"],"West":["Rajasthan","Gujarat","Dadra and Nagar Haveli and Daman and Diu","Maharashtra","Goa"],"East":["Bihar","West Bengal","Sikkim","Meghalaya","Assam","Arunachal Pradesh","Nagaland","Manipur","Mizoram","Tripura","Odisha"],"South":["Telangana","Karnataka","Andhra Pradesh","Kerala","Tamil Nadu","Puducherry","Andaman and Nicobar Islands","Lakshadweep"],"Middle":["Madhya Pradesh","Chhattisgarh","Jharkhand"]}
+    region={"Scarcity":["Himachal Pradesh","Haryana","Punjab","Uttar Pradesh","Uttarakhand","Chandigarh","Delhi","Jammu and Kashmir","Ladakh","Rajasthan","Gujarat","Dadra and Nagar Haveli and Daman and Diu","Madhya Pradesh","Jharkhand","Bihar","West Bengal",],
+    "Stress":["Telangana","Puducherry","Odisha","Karnataka","Chhattisgarh","Maharashtra"],"No Stress":["Meghalaya","Assam","Arunachal Pradesh","Nagaland","Sikkim","Manipur","Mizoram","Tripura","Goa","Kerala"],"Danger":["Andhra Pradesh","Tamil Nadu"]}
     
    
     if request.method=="POST":
         st=request.POST['state']
-        shower=int(request.POST['shower'])
-        flush=int(request.POST['flush'])
-        dish=int(request.POST['dishwasher'])
-        laun=int(request.POST['laundry'])
-        diet=int(request.POST['diet'])
-        local=int(request.POST['local'])
-        showertime=4*shower
-        flushtime=6*flush
-        launtime=10*laun
-        dishtime=7*dish
+        shower=int(request.POST['showerTime'])
+        flush=int(request.POST['flushes'])
+        dish=int(request.POST['dishwasherUsage'])
+        laun=int(request.POST['laundryUsage'])
+        diet=int(request.POST['dietPlan'])
+        
+        showertime=9*shower
+        flushtime=4.8*flush
+        launtime=45*laun
+        dishtime=9.5*dish
         totalwater=showertime+flushtime+launtime+dishtime+diet
+        pyrwater=totalwater*365
 
 
         for k,v in region.items():
-            if(state in v ):
-                
-        if( totalwater>local ):
-            messages.info(request,'Follow water conservation techniques')
-        else:
-            messages.info(request,'You have good waterfootprint')
+            if(st in v ):
+                if(k=="Scarcity"):
+                    if(pyrwater>500000 and pyrwater<1000000):
+                        messages.info(request,'You have good waterfootprint')
+                    if(pyrwater<500000):
+                        messages.info(request,'You have good waterfootprint, Keep it up')
+                    if( pyrwater>1000000):
+                        messages.info(request,'You should follow water conservation techniques')
+                if(k=="Stress"):
+                    if(pyrwater>1000000 and pyrwater<1700000):
+                        messages.info(request,'You have good waterfootprint')
+                    if(pyrwater<1000000):
+                        messages.info(request,'You have good waterfootprint, Keep it up')
+                    if( pyrwater>1700000):
+                        messages.info(request,'You should follow water conservation techniques')
+                if(k=="No Stress"):
+                    if(pyrwater<1700000):
+                        messages.info(request,'You have good waterfootprint')
+                    if( pyrwater>1700000):
+                        messages.info(request,'You have good waterfootprint, Keep it up')
+                if(k=="Danger"):
+                    if(pyrwater<500000):
+                        messages.info(request,'You have good waterfootprint,Keep it up')
+                    if( pyrwater>500000):
+                        messages.info(request,'You should follow water conservation techniques')
         return render(request,'result.html',{'totalwater':totalwater})
-        
     else:
         return render(request,'page1.html')
     
 def resultpage(request):
     return render(request,'result.html')
+def aboutus(request):
+    return render(request,'aboutus.html')
+def divconnect1(request):
+    return render(request,'divconnect1.html')
+def divconnect2(request):
+    return render(request,'divconnect2.html')
+def divconnect3(request):
+    return render(request,'divconnect3.html')
+
+
+
+
 
 
 # Create your views here.
