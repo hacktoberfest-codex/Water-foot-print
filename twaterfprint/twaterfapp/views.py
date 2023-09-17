@@ -23,8 +23,9 @@ def page1(request):
         totalwater=showertime+flushtime+launtime+dishtime+diet
 
 
-        # for k,v in region.items():
-        #     if(state in v ):
+        for k,v in region.items():
+            if(state in v ):
+                
         if( totalwater>local ):
             messages.info(request,'Follow water conservation techniques')
         else:
