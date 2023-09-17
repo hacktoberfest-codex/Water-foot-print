@@ -32,6 +32,18 @@
     scrollbar-width: none;
      }
 
+     .main-container{
+      margin-left: 85px;
+  max-height: 100vh;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+}
+.main-container::-webkit-scrollbar {
+    width: 0;
+}
+
     header {
     background-color: #3498db;
     color: #fff;
@@ -76,12 +88,6 @@
 #result {
     margin-top: 20px;
 }
-
-.main-container{
-
-  margin-left: 85px;
-}
-
 /* Style the navigation bar */
 @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css");
         .menu, .menu-bar {
@@ -377,11 +383,11 @@ a:visited{
   
 
     <div class="main-container">
-      <div style="height:100px; text-align: center; background:linear-gradient(to top,lightblue,white,lightblue);border:2px solid blue;">
+      <div style="height:100px; text-align: center; background:linear-gradient(to top,lightblue,white,lightblue);">
       <h1 style="font-family: 'Oswald', sans-serif; padding-top: 20px; background: linear-gradient(to top,white,rgb(109, 109, 230),rgb(8, 12, 234),rgb(109, 109, 230),white); -webkit-background-clip: text; -webkit-text-fill-color: transparent ;">Water Footprint Calculator</h1>
       </div>
 
-    <div id="demo" class="carousel slide" data-bs-ride="carousel" >
+     <div id="demo" class="carousel slide" data-bs-ride="carousel" >
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
           <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
@@ -416,7 +422,7 @@ a:visited{
         </button>
       -->
       </div>
-    <main>
+     <main>
         <section id="calculator">
             <h2>Calculate Your Water Footprint</h2>
             
@@ -426,7 +432,7 @@ a:visited{
             
             <div id="result"></div>
         </section>
-    </main>   
+      </main>   
 
     <div id="google_translate_element"></div>
 
